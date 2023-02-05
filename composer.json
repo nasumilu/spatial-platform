@@ -1,0 +1,29 @@
+{
+    "name": "nasumilu/spatial-platform",
+    "description": "Doctrine platforms with spatial query generation.",
+    "type": "library",
+    "require": {
+        "doctrine/dbal": "^3.5",
+      "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "Nasumilu\\DBAL\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nasumilu\\DBAL\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Lucas",
+            "email": "nasumilu@gmail.com"
+        }
+    ]
+}
