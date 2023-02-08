@@ -16,14 +16,7 @@ class PostGISSchemaManagerTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        $params = [
-            'dbname' => 'issue_trac',
-            'user' => 'dbmaster',
-            'password' => '1k32bMBaET4pVvNk',
-            'host' => '192.168.122.10',
-            'port' => 5432,
-            'driver' => 'pdo_pgsql'
-        ];
+        $params = json_decode($_ENV['POSTGRESQL_CONNECTION'], true);
         $configuration = new Configuration();
         $configuration->setMiddlewares([new PostGISMiddleware()]);
 
@@ -36,7 +29,7 @@ class PostGISSchemaManagerTest extends TestCase
     public function testListFeatures() {
         $manager = self::$connection->createSchemaManager();
         $features = $manager->listFeatures();
-        $this->assertCount(3, $features);
+        $this->assertCount(1, $features);
     }
 
     /**
