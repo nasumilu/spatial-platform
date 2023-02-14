@@ -13,8 +13,9 @@ interface SpatialPlatform
 
     public function getGeometryTypeSQLDeclaration(string $type, int | null $srid): string;
 
-    public function getListGeometryColumnsSQL(): string;
+    public function getListGeometryColumnsSQL(string $database): string;
 
     public function getFeatureExtentSQL(FeatureClass $feature): string;
+
 
 }

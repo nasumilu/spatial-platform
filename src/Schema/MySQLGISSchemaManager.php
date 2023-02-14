@@ -5,10 +5,11 @@ namespace Nasumilu\DBAL\Schema;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Schema\MySQLSchemaManager;
 use Doctrine\DBAL\Schema\PostgreSQLSchemaManager;
 use Doctrine\DBAL\Schema\Table;
 
-class PostGISSchemaManager extends PostgreSQLSchemaManager implements SpatialSchemaManager
+class MySQLGISSchemaManager extends MySQLSchemaManager implements SpatialSchemaManager
 {
 
     public function __construct(Connection $connection, AbstractPlatform $platform)

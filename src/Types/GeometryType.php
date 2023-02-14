@@ -28,7 +28,7 @@ class GeometryType extends Type
         if (!$platform instanceof SpatialPlatform) {
             throw new InvalidArgumentException("Expected a spatial platform!");
         }
-        return $this->convertToDatabaseValueSQL($sqlExpr, self::$srid);
+        return $platform->getConvertGeometryToDatabaseValueSQL($sqlExpr, self::$srid);
     }
 
     /**
@@ -45,6 +45,20 @@ class GeometryType extends Type
     public function getName(): string
     {
         return 'geometry';
+    }
+
+    public function getMappedDatabaseTypes(AbstractPlatform $platform)
+    {
+        return [
+            'geometry',
+            'point',
+            'linestring',
+            'polygon',
+            'multipoint',
+            'multilinestring',
+            'multipolygon',
+            'geometrycollection'
+        ];
     }
 
     public function getBindingType(): int

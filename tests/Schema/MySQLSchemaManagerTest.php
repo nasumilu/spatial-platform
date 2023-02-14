@@ -6,19 +6,19 @@ use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Exception;
-use Nasumilu\DBAL\Driver\PostGISMiddleware;
+use Nasumilu\DBAL\Driver\MySQLGISMiddleware;
 use PHPUnit\Framework\TestCase;
 
-class PostGISSchemaManagerTest extends TestCase
+class MySQLSchemaManagerTest extends TestCase
 {
 
     private static Connection $connection;
 
     public static function setUpBeforeClass(): void
     {
-        $params = json_decode($_ENV['POSTGRESQL_CONNECTION'], true);
+        $params = json_decode($_ENV['MYSQL_CONNECTION'], true);
         $configuration = new Configuration();
-        $configuration->setMiddlewares([new PostGISMiddleware()]);
+        $configuration->setMiddlewares([new MySQLGISMiddleware()]);
 
         self::$connection = DriverManager::getConnection($params, $configuration);
     }
@@ -30,17 +30,6 @@ class PostGISSchemaManagerTest extends TestCase
         $manager = self::$connection->createSchemaManager();
         $features = $manager->listFeatures();
         $this->assertCount(3, $features);
-    }
-
-    /**
-     * @return void
-     * @throws Exception
-     */
-    public function testExtent() {
-        $manager = self::$connection->createSchemaManager();
-        $extent = $manager->getFeatureExtent('place');
-        $this->assertIsArray($extent);
-        $this->assertCount(4, $extent);
     }
 
 }

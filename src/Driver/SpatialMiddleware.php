@@ -8,6 +8,7 @@ use Doctrine\DBAL\Driver\API\ExceptionConverter;
 use Doctrine\DBAL\Driver\Middleware;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Types\Type;
 use Nasumilu\DBAL\Platforms\SpatialPlatform;
@@ -42,7 +43,7 @@ abstract class SpatialMiddleware implements Middleware, Driver
     public function getSchemaManager(Connection $conn, AbstractPlatform $platform): AbstractSchemaManager
     {
         $platform = $this->getDatabasePlatform();
-        return $platform->createSchemaManager($conn, $platform);
+        return $platform->createSchemaManager($conn);
     }
 
     public function getExceptionConverter(): ExceptionConverter

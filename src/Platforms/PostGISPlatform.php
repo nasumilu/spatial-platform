@@ -14,7 +14,7 @@ class PostGISPlatform extends PostgreSQLPlatform implements SpatialPlatform
 {
 
 
-    public function getListGeometryColumnsSQL(): string
+    public function getListGeometryColumnsSQL(string $database): string
     {
         return "SELECT f_table_catalog   as db_name,
                        f_table_schema    as schema_name,

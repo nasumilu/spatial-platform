@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "206ad716897aed12f1f4d9e691e6f7dd",
+    "content-hash": "bce8d1dcd2cede00712f63df9b079e98",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -574,6 +574,41 @@
                 }
             ],
             "time": "2022-03-03T13:19:32+00:00"
+        },
+        {
+            "name": "nasumilu/issue-trac-database",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nasumilu/issue-trac-databsase.git",
+                "reference": "54635dd0b165d20effb9833b78cce6bbf82b61bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nasumilu/issue-trac-databsase/zipball/54635dd0b165d20effb9833b78cce6bbf82b61bf",
+                "reference": "54635dd0b165d20effb9833b78cce6bbf82b61bf",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "bin": [
+                "src/issuetrac_db"
+            ],
+            "type": "library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Lucas",
+                    "email": "nasumilu@gmail.com"
+                }
+            ],
+            "description": "All things database for the IssueTrac application",
+            "support": {
+                "source": "https://github.com/nasumilu/issue-trac-databsase/tree/v1.0.0",
+                "issues": "https://github.com/nasumilu/issue-trac-databsase/issues"
+            },
+            "time": "2023-02-12T08:12:42+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2179,7 +2214,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nasumilu/issue-trac-database": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
